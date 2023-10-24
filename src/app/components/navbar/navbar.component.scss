@@ -1,3 +1,26 @@
 .example-spacer {
   flex: 1 1 auto;
 }
+
+.icon {
+  margin-right: 2px; /* Spacing between icon and text */
+}
+
+.title {
+  font-size: 24px; /* Adjust the title size as needed */
+}
+
+.nav-button {
+  background-color: transparent; /* Set your desired background color */
+  color: white; /* Set text color to white */
+  border-radius: 4px; /* Add rounded corners */
+  padding: 10px; /* Adjust padding as needed */
+}
+
+.button-text {
+  font-size: 1.2em; /* Adjust the button text size */
+}
+
+.page-button {
+  margin-right: 5px;
+}

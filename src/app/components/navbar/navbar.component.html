@@ -1,25 +1,72 @@
 <mat-toolbar color="primary">
-  <mat-icon>airplane_ticket</mat-icon>
-  <span>ReservApp</span>
+  <!-- <mat-icon class="icon">airplane_ticket</mat-icon>
+  <span class="title">ReservApp</span> -->
+  <div class="page-button">
+    <button
+      mat-button
+      routerLink="/"
+      routerLinkActive="active"
+      aria-label="Vuelos"
+      class="nav-button"
+    >
+      <mat-icon class="icon">airplane_ticket</mat-icon>
+      <span class="title">ReservApp</span>
+    </button>
+  </div>
 
   <span class="example-spacer"></span>
 
-  <button
-    mat-button
-    routerLink="/vuelos"
-    routerLinkActive="active"
-    aria-label="Vuelos"
-  >
-    <mat-icon>connecting_airports</mat-icon>
-    Vuelos
-  </button>
-  <button
-    mat-button
-    routerLink="/reservas"
-    routerLinkActive="active"
-    aria-label="Reservas"
-  >
-    <mat-icon>event_note</mat-icon>
-    Reservas
-  </button>
+  <div class="page-button" *ngIf="!isSmallScreen">
+    <button
+      mat-button
+      routerLink="/vuelos"
+      routerLinkActive="active"
+      aria-label="Vuelos"
+      class="nav-button"
+    >
+      <mat-icon class="icon">connecting_airports</mat-icon>
+      <span class="button-text">Vuelos</span>
+    </button>
+  </div>
+
+  <div class="page-button" *ngIf="!isSmallScreen">
+    <button
+      mat-button
+      routerLink="/reservas"
+      routerLinkActive="active"
+      aria-label="Reservas"
+      class="nav-button"
+    >
+      <mat-icon class="icon">event_note</mat-icon>
+      <span class="button-text">Reservas</span>
+    </button>
+  </div>
+
+  <div *ngIf="isSmallScreen">
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon class="icon">menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button
+        mat-menu-item
+        routerLink="/vuelos"
+        routerLinkActive="active"
+        aria-label="Vuelos"
+        class="nav-button"
+      >
+        <mat-icon class="icon">connecting_airports</mat-icon>
+        <span class="button-text">Vuelos</span>
+      </button>
+      <button
+        mat-menu-item
+        routerLink="/reservas"
+        routerLinkActive="active"
+        aria-label="Reservas"
+        class="nav-button"
+      >
+        <mat-icon class="icon">event_note</mat-icon>
+        <span class="button-text">Reservas</span>
+      </button>
+    </mat-menu>
+  </div>
 </mat-toolbar>
