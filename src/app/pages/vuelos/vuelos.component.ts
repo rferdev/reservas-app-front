@@ -1,8 +1,10 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { VuelosService } from 'src/app/services/vuelos.service';
+import { Vuelo } from 'src/app/interfaces/vuelos.interface';
 
 // ! BORRAR
 
@@ -32,11 +34,32 @@ const ELEMENT_DATA: PeriodicElement[] = [
   templateUrl: './vuelos.component.html',
   styleUrls: ['./vuelos.component.scss'],
 })
-export class VuelosComponent implements AfterViewInit {
+export class VuelosComponent implements OnInit, AfterViewInit {
+  VUELOS_DATA!: Vuelo[];
+
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  /* displayedColumns: string[] = [
+    'VueloID',
+    'Codigo',
+    'Origen',
+    'Destino',
+    'Salida',
+    'Llegada',
+    'Capacidad',
+  ]; */
   dataSource = new MatTableDataSource(ELEMENT_DATA);
 
-  constructor(private _liveAnnouncer: LiveAnnouncer) {}
+  constructor(
+    private _liveAnnouncer: LiveAnnouncer,
+    private vuelosService: VuelosService
+  ) {}
+
+  ngOnInit(): void {
+    this.vuelosService.getVuelos().subscribe((vuelos) => {
+      this.VUELOS_DATA = vuelos;
+      console.log('VUELOS_DATA:', this.VUELOS_DATA);
+    });
+  }
 
   @ViewChild(MatSort) sort!: MatSort;
 
