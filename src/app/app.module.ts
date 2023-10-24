@@ -5,6 +5,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { HttpClientModule } from '@angular/common/http';
 
+import { DatePipe } from '@angular/common';
+
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { VuelosComponent } from './pages/vuelos/vuelos.component';
@@ -25,6 +27,7 @@ import { HomeComponent } from './pages/home/home.component';
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule,
+    DatePipe,
   ],
   providers: [],
   bootstrap: [AppComponent],
