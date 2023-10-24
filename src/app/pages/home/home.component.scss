@@ -1,0 +1,48 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 90vh;
+  margin-top: -100px;
+}
+
+.airplane_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .icon {
+    height: auto;
+    width: auto;
+    font-size: 10em;
+    margin: 0;
+  }
+}
+
+p {
+  text-align: center;
+  font-size: 1.3em;
+  margin-bottom: 2.5em;
+}
+
+.nav-button {
+  width: 200px;
+  padding: 10px 0;
+  margin: 0 0 10px;
+}
+
+.title {
+  font-size: 1.1em;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  button {
+    background-color: #3f51b5;
+    color: white;
+  }
+}

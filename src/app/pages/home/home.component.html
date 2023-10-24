@@ -1,1 +1,30 @@
-<p>home works!</p>
+<div class="container">
+  <div class="centered-content">
+    <div class="airplane_button">
+      <mat-icon class="icon">airplanemode_active</mat-icon>
+    </div>
+
+    <p>Por favor, seleccione una de las opciones:</p>
+
+    <div class="actions">
+      <button
+        mat-button
+        routerLink="/vuelos"
+        routerLinkActive="active"
+        aria-label="Vuelos"
+        class="nav-button"
+      >
+        <span class="title">Ver Vuelos</span>
+      </button>
+      <button
+        mat-button
+        routerLink="/reservas"
+        routerLinkActive="active"
+        aria-label="Vuelos"
+        class="nav-button"
+      >
+        <span class="title">Ver Reservas</span>
+      </button>
+    </div>
+  </div>
+</div>
