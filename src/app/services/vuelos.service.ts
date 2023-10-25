@@ -13,7 +13,7 @@ export class VuelosService {
 
   constructor(private http: HttpClient) {}
 
-  getVuelos(): Observable<Vuelo[]> {
+  getAllVuelos(): Observable<Vuelo[]> {
     return this.http.get<Vuelo[]>(`${this.baseUrl}/vuelos`);
   }
 }

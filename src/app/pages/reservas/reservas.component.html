@@ -1,1 +1,88 @@
-<p>reservas works!</p>
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+  <!-- ReservaID Column -->
+  <ng-container matColumnDef="ReservaID">
+    <th
+      mat-header-cell
+      *matHeaderCellDef
+      mat-sort-header
+      sortActionDescription="Sort by ReservaID"
+    >
+      ReservaID
+    </th>
+    <td mat-cell *matCellDef="let element">{{ element.reservaid }}</td>
+  </ng-container>
+
+  <!-- VueloID Column -->
+  <ng-container matColumnDef="VueloID">
+    <th
+      mat-header-cell
+      *matHeaderCellDef
+      mat-sort-header
+      sortActionDescription="Sort by VueloID"
+    >
+      VueloID
+    </th>
+    <td mat-cell *matCellDef="let element">{{ element.vueloid }}</td>
+  </ng-container>
+
+  <!-- PasajeroID Column -->
+  <ng-container matColumnDef="PasajeroID">
+    <th
+      mat-header-cell
+      *matHeaderCellDef
+      mat-sort-header
+      sortActionDescription="Sort by PasajeroID"
+    >
+      PasajeroID
+    </th>
+    <td mat-cell *matCellDef="let element">{{ element.pasajeroid }}</td>
+  </ng-container>
+
+  <!-- FechaReserva Column -->
+  <ng-container matColumnDef="FechaReserva">
+    <th
+      mat-header-cell
+      *matHeaderCellDef
+      mat-sort-header
+      sortActionDescription="Sort by FechaReserva"
+    >
+      FechaReserva
+    </th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.fechareserva | date : "yyyy/MM/dd hh:mm a" }}
+    </td>
+  </ng-container>
+
+  <!-- Estado Column -->
+  <ng-container matColumnDef="Estado">
+    <th
+      mat-header-cell
+      *matHeaderCellDef
+      mat-sort-header
+      sortActionDescription="Sort by Estado"
+    >
+      Estado
+    </th>
+    <td mat-cell *matCellDef="let element">{{ element.estado }}</td>
+  </ng-container>
+
+  <!-- Actions Column -->
+  <ng-container matColumnDef="Acciones">
+    <th
+      mat-header-cell
+      *matHeaderCellDef
+      mat-sort-header
+      sortActionDescription="Sort by Capacidad"
+    >
+      Acciones
+    </th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-icon-button matTooltip="Reservar" matTooltipShowDelay="1000">
+        <mat-icon>edit_calendar</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>

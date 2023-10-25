@@ -31,6 +31,7 @@ export class VuelosComponent implements OnInit, AfterViewInit {
     'Salida',
     'Llegada',
     'Capacidad',
+    'Acciones',
   ];
 
   dataSource = new MatTableDataSource<Vuelo>([]);
@@ -38,9 +39,9 @@ export class VuelosComponent implements OnInit, AfterViewInit {
   constructor(private vuelosService: VuelosService) {}
 
   ngOnInit(): void {
-    this.vuelosService.getVuelos().subscribe((vuelos) => {
+    this.vuelosService.getAllVuelos().subscribe((vuelos) => {
       this.VUELOS_DATA = vuelos;
-      this.dataSource = new MatTableDataSource<Vuelo>(this.VUELOS_DATA); // Update the MatTableDataSource
+      this.dataSource = new MatTableDataSource<Vuelo>(this.VUELOS_DATA);
     });
   }
 
