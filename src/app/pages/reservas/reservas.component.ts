@@ -1,6 +1,7 @@
-import { Component, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+
 import { Reserva } from 'src/app/interfaces/reservas.interface';
 import { ReservasService } from 'src/app/services/reservas.service';
 
@@ -31,7 +32,10 @@ export class ReservasComponent {
 
   dataSource = new MatTableDataSource<Reserva>([]);
 
-  constructor(private reservasService: ReservasService) {}
+  constructor(
+    private reservasService: ReservasService,
+    private changeDetectorRef: ChangeDetectorRef
+  ) {}
 
   ngOnInit(): void {
     this.reservasService.getAllReservas().subscribe((reservas) => {
@@ -45,4 +49,15 @@ export class ReservasComponent {
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
   }
+
+  deleteReserva = (reservaID: number) => {
+    this.reservasService.deleteReserva(reservaID).subscribe((data) => {
+      console.log('Reserva eliminada exitosamente.');
+      this.reservasService.getAllReservas().subscribe((reservas) => {
+        this.RESERVAS_DATA = reservas;
+        this.dataSource = new MatTableDataSource<Reserva>(this.RESERVAS_DATA);
+        this.changeDetectorRef.detectChanges();
+      });
+    });
+  };
 }

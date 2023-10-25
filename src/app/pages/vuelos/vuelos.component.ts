@@ -56,10 +56,8 @@ export class VuelosComponent implements OnInit, AfterViewInit {
   }
 
   createReserva = (vueloID: number) => {
-    console.log({ vueloID });
-
     this.reservasService.createReserva(vueloID).subscribe((data) => {
-      console.log({ data });
+      console.log('Reserva realizada exitosamente.');
     });
   };
 }
