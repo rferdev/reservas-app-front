@@ -23,7 +23,7 @@ export class ReservasComponent {
   displayedColumns: string[] = [
     'ReservaID',
     'VueloID',
-    'PasajeroID',
+    // 'PasajeroID',
     'FechaReserva',
     'Estado',
     'Acciones',

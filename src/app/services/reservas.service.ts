@@ -12,8 +12,8 @@ export class ReservasService {
 
   constructor(private http: HttpClient) {}
 
-  createReserva(VueloID: number): Observable<Reserva[]> {
-    return this.http.post<Reserva[]>(`${this.baseUrl}/reservas`, VueloID);
+  createReserva(vueloID: number): Observable<Reserva[]> {
+    return this.http.post<Reserva[]>(`${this.baseUrl}/reservas`, { vueloID });
   }
 
   getAllReservas(): Observable<Reserva[]> {

@@ -4,6 +4,7 @@ import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { VuelosService } from 'src/app/services/vuelos.service';
 import { Vuelo } from 'src/app/interfaces/vuelos.interface';
+import { ReservasService } from 'src/app/services/reservas.service';
 
 @Component({
   selector: 'app-vuelos',
@@ -24,7 +25,7 @@ export class VuelosComponent implements OnInit, AfterViewInit {
   ];
 
   displayedColumns: string[] = [
-    'VueloID',
+    // 'VueloID',
     'Codigo',
     'Origen',
     'Destino',
@@ -36,7 +37,10 @@ export class VuelosComponent implements OnInit, AfterViewInit {
 
   dataSource = new MatTableDataSource<Vuelo>([]);
 
-  constructor(private vuelosService: VuelosService) {}
+  constructor(
+    private vuelosService: VuelosService,
+    private reservasService: ReservasService
+  ) {}
 
   ngOnInit(): void {
     this.vuelosService.getAllVuelos().subscribe((vuelos) => {
@@ -50,4 +54,12 @@ export class VuelosComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
   }
+
+  createReserva = (vueloID: number) => {
+    console.log({ vueloID });
+
+    this.reservasService.createReserva(vueloID).subscribe((data) => {
+      console.log({ data });
+    });
+  };
 }

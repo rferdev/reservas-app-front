@@ -77,8 +77,12 @@
       Acciones
     </th>
     <td mat-cell *matCellDef="let element">
-      <button mat-icon-button matTooltip="Reservar" matTooltipShowDelay="1000">
-        <mat-icon>edit_calendar</mat-icon>
+      <button
+        mat-icon-button
+        matTooltip="Cancelar Reserva"
+        matTooltipShowDelay="1000"
+      >
+        <mat-icon style="color: red">delete</mat-icon>
       </button>
     </td>
   </ng-container>
