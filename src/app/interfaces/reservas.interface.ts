@@ -1,7 +1,7 @@
 export interface Reserva {
-  ReservaID: number;
-  VueloID: number;
-  PasajeroID: number;
-  FechaReserva: string;
-  Estado: string;
+  reservaid: number;
+  vueloid: number;
+  pasajeroid: number;
+  fechareserva: string;
+  estado: string;
 }

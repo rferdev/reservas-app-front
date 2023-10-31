@@ -1,50 +1,50 @@
 <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
-  <!-- ReservaID Column -->
-  <ng-container matColumnDef="ReservaID">
+  <!-- reservaid Column -->
+  <ng-container matColumnDef="reservaid">
     <th
       mat-header-cell
       *matHeaderCellDef
       mat-sort-header
-      sortActionDescription="Sort by ReservaID"
+      sortActionDescription="Sort by reservaid"
     >
       ReservaID
     </th>
     <td mat-cell *matCellDef="let element">{{ element.reservaid }}</td>
   </ng-container>
 
-  <!-- VueloID Column -->
-  <ng-container matColumnDef="VueloID">
+  <!-- vueloid Column -->
+  <ng-container matColumnDef="vueloid">
     <th
       mat-header-cell
       *matHeaderCellDef
       mat-sort-header
-      sortActionDescription="Sort by VueloID"
+      sortActionDescription="Sort by vueloid"
     >
       VueloID
     </th>
     <td mat-cell *matCellDef="let element">{{ element.vueloid }}</td>
   </ng-container>
 
-  <!-- PasajeroID Column -->
-  <ng-container matColumnDef="PasajeroID">
+  <!-- pasajeroid Column -->
+  <ng-container matColumnDef="pasajeroid">
     <th
       mat-header-cell
       *matHeaderCellDef
       mat-sort-header
-      sortActionDescription="Sort by PasajeroID"
+      sortActionDescription="Sort by pasajeroid"
     >
       PasajeroID
     </th>
     <td mat-cell *matCellDef="let element">{{ element.pasajeroid }}</td>
   </ng-container>
 
-  <!-- FechaReserva Column -->
-  <ng-container matColumnDef="FechaReserva">
+  <!-- fechareserva Column -->
+  <ng-container matColumnDef="fechareserva">
     <th
       mat-header-cell
       *matHeaderCellDef
       mat-sort-header
-      sortActionDescription="Sort by FechaReserva"
+      sortActionDescription="Sort by fechareserva"
     >
       FechaReserva
     </th>
@@ -53,29 +53,22 @@
     </td>
   </ng-container>
 
-  <!-- Estado Column -->
-  <ng-container matColumnDef="Estado">
+  <!-- estado Column -->
+  <ng-container matColumnDef="estado">
     <th
       mat-header-cell
       *matHeaderCellDef
       mat-sort-header
-      sortActionDescription="Sort by Estado"
+      sortActionDescription="Sort by estado"
     >
       Estado
     </th>
     <td mat-cell *matCellDef="let element">{{ element.estado }}</td>
   </ng-container>
 
-  <!-- Actions Column -->
-  <ng-container matColumnDef="Acciones">
-    <th
-      mat-header-cell
-      *matHeaderCellDef
-      mat-sort-header
-      sortActionDescription="Sort by Capacidad"
-    >
-      Acciones
-    </th>
+  <!-- acciones Column -->
+  <ng-container matColumnDef="acciones">
+    <th mat-header-cell *matHeaderCellDef>Acciones</th>
     <td mat-cell *matCellDef="let element">
       <button
         mat-icon-button

@@ -1,9 +1,9 @@
 export interface Vuelo {
-  VueloID: number;
-  Codigo: string;
-  Origen: string;
-  Destino: string;
-  Salida: string;
-  Llegada: string;
-  Capacidad: number;
+  vueloid: number;
+  codigo: string;
+  origen: string;
+  destino: string;
+  salida: string;
+  llegada: string;
+  capacidad: number;
 }

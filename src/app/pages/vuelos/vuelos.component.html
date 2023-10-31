@@ -1,63 +1,63 @@
 <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
-  <!-- VueloID Column -->
-  <ng-container matColumnDef="VueloID">
+  <!-- vueloid Column -->
+  <ng-container matColumnDef="vueloid">
     <th
       mat-header-cell
       *matHeaderCellDef
       mat-sort-header
-      sortActionDescription="Sort by VueloID"
+      sortActionDescription="Sort by vueloid"
     >
-      VueloID
+      Vuelo ID
     </th>
     <td mat-cell *matCellDef="let element">{{ element.vueloid }}</td>
   </ng-container>
 
-  <!-- Codigo Column -->
-  <ng-container matColumnDef="Codigo">
+  <!-- codigo Column -->
+  <ng-container matColumnDef="codigo">
     <th
       mat-header-cell
       *matHeaderCellDef
       mat-sort-header
-      sortActionDescription="Sort by Codigo"
+      sortActionDescription="Sort by codigo"
     >
-      Codigo
+      Código
     </th>
     <td mat-cell *matCellDef="let element">{{ element.codigo }}</td>
   </ng-container>
 
-  <!-- Origen Column -->
-  <ng-container matColumnDef="Origen">
+  <!-- origen Column -->
+  <ng-container matColumnDef="origen">
     <th
       mat-header-cell
       *matHeaderCellDef
       mat-sort-header
-      sortActionDescription="Sort by Origen"
+      sortActionDescription="Sort by origen"
     >
       Origen
     </th>
     <td mat-cell *matCellDef="let element">{{ element.origen }}</td>
   </ng-container>
 
-  <!-- Destino Column -->
-  <ng-container matColumnDef="Destino">
+  <!-- destino Column -->
+  <ng-container matColumnDef="destino">
     <th
       mat-header-cell
       *matHeaderCellDef
       mat-sort-header
-      sortActionDescription="Sort by Destino"
+      sortActionDescription="Sort by destino"
     >
       Destino
     </th>
     <td mat-cell *matCellDef="let element">{{ element.destino }}</td>
   </ng-container>
 
-  <!-- Salida Column -->
-  <ng-container matColumnDef="Salida">
+  <!-- salida Column -->
+  <ng-container matColumnDef="salida">
     <th
       mat-header-cell
       *matHeaderCellDef
       mat-sort-header
-      sortActionDescription="Sort by Salida"
+      sortActionDescription="Sort by salida"
     >
       Salida
     </th>
@@ -66,13 +66,13 @@
     </td>
   </ng-container>
 
-  <!-- Llegada Column -->
-  <ng-container matColumnDef="Llegada">
+  <!-- llegada Column -->
+  <ng-container matColumnDef="llegada">
     <th
       mat-header-cell
       *matHeaderCellDef
       mat-sort-header
-      sortActionDescription="Sort by Llegada"
+      sortActionDescription="Sort by llegada"
     >
       Llegada
     </th>
@@ -81,29 +81,22 @@
     </td>
   </ng-container>
 
-  <!-- Capacidad Column -->
-  <ng-container matColumnDef="Capacidad">
+  <!-- capacidad Column -->
+  <ng-container matColumnDef="capacidad">
     <th
       mat-header-cell
       *matHeaderCellDef
       mat-sort-header
-      sortActionDescription="Sort by Capacidad"
+      sortActionDescription="Sort by capacidad"
     >
       Capacidad
     </th>
     <td mat-cell *matCellDef="let element">{{ element.capacidad }}</td>
   </ng-container>
 
-  <!-- Actions Column -->
-  <ng-container matColumnDef="Acciones">
-    <th
-      mat-header-cell
-      *matHeaderCellDef
-      mat-sort-header
-      sortActionDescription="Sort by Capacidad"
-    >
-      Acciones
-    </th>
+  <!-- acciones Column -->
+  <ng-container matColumnDef="acciones">
+    <th mat-header-cell *matHeaderCellDef>Acciones</th>
     <td mat-cell *matCellDef="let element">
       <button
         mat-icon-button

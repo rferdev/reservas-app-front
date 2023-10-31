@@ -11,23 +11,15 @@ import { ReservasService } from 'src/app/services/reservas.service';
   styleUrls: ['./reservas.component.scss'],
 })
 export class ReservasComponent {
-  RESERVAS_DATA: Reserva[] = [
-    {
-      ReservaID: 99,
-      VueloID: 1,
-      PasajeroID: 1,
-      FechaReserva: '2023-12-31T23:30:00.000Z',
-      Estado: 'Completada',
-    },
-  ];
+  RESERVAS_DATA!: Reserva[];
 
   displayedColumns: string[] = [
-    'ReservaID',
-    'VueloID',
-    // 'PasajeroID',
-    'FechaReserva',
-    'Estado',
-    'Acciones',
+    'reservaid',
+    'vueloid',
+    // 'pasajeroid',
+    'fechareserva',
+    'estado',
+    'acciones',
   ];
 
   dataSource = new MatTableDataSource<Reserva>([]);
@@ -41,14 +33,11 @@ export class ReservasComponent {
     this.reservasService.getAllReservas().subscribe((reservas) => {
       this.RESERVAS_DATA = reservas;
       this.dataSource = new MatTableDataSource<Reserva>(this.RESERVAS_DATA);
+      this.dataSource.sort = this.sort;
     });
   }
 
   @ViewChild(MatSort) sort!: MatSort;
-
-  ngAfterViewInit() {
-    this.dataSource.sort = this.sort;
-  }
 
   deleteReserva = (reservaID: number) => {
     this.reservasService.deleteReserva(reservaID).subscribe((data) => {
@@ -56,6 +45,7 @@ export class ReservasComponent {
       this.reservasService.getAllReservas().subscribe((reservas) => {
         this.RESERVAS_DATA = reservas;
         this.dataSource = new MatTableDataSource<Reserva>(this.RESERVAS_DATA);
+        this.dataSource.sort = this.sort;
         this.changeDetectorRef.detectChanges();
       });
     });
