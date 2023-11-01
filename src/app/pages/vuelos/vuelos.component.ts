@@ -6,6 +6,7 @@ import { Vuelo } from 'src/app/interfaces/vuelos.interface';
 
 import { VuelosService } from 'src/app/services/vuelos.service';
 import { ReservasService } from 'src/app/services/reservas.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-vuelos',
@@ -30,7 +31,8 @@ export class VuelosComponent implements OnInit {
 
   constructor(
     private vuelosService: VuelosService,
-    private reservasService: ReservasService
+    private reservasService: ReservasService,
+    private _snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -46,6 +48,7 @@ export class VuelosComponent implements OnInit {
   createReserva = (vueloID: number) => {
     this.reservasService.createReserva(vueloID).subscribe((data) => {
       console.log('Reserva realizada exitosamente.');
+      this._snackBar.open('Reserva realizada exitosamente.', 'Cerrar');
     });
   };
 }
