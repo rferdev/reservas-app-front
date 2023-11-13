@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
@@ -6,7 +7,6 @@ import { Vuelo } from 'src/app/interfaces/vuelo.interface';
 
 import { VuelosService } from 'src/app/services/vuelos.service';
 import { ReservasService } from 'src/app/services/reservas.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-vuelos',
@@ -36,18 +36,24 @@ export class VuelosComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.vuelosService.getAllVuelos().subscribe((vuelos) => {
-      this.VUELOS_DATA = vuelos;
-      this.dataSource = new MatTableDataSource<Vuelo>(this.VUELOS_DATA);
-      this.dataSource.sort = this.sort;
+    this.vuelosService.getAllVuelos().subscribe({
+      next: (vuelos) => {
+        this.VUELOS_DATA = vuelos;
+        this.dataSource = new MatTableDataSource<Vuelo>(this.VUELOS_DATA);
+        this.dataSource.sort = this.sort;
+      },
     });
   }
 
   @ViewChild(MatSort) sort!: MatSort;
 
   createReserva = (vueloId: number) => {
-    this.reservasService.createReserva(vueloId).subscribe((data) => {
-      this._snackBar.open('Reserva realizada exitosamente.', 'Cerrar');
+    this.reservasService.createReserva(vueloId).subscribe({
+      complete: () => {
+        this._snackBar.open('Reserva realizada exitosamente.', 'Cerrar', {
+          duration: 5 * 1000,
+        });
+      },
     });
   };
 }
