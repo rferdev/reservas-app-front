@@ -1,15 +1,15 @@
 <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
-  <!-- vueloid Column -->
-  <ng-container matColumnDef="vueloid">
+  <!-- id Column -->
+  <ng-container matColumnDef="id">
     <th
       mat-header-cell
       *matHeaderCellDef
       mat-sort-header
-      sortActionDescription="Sort by vueloid"
+      sortActionDescription="Sort by id"
     >
       Vuelo ID
     </th>
-    <td mat-cell *matCellDef="let element">{{ element.vueloid }}</td>
+    <td mat-cell *matCellDef="let element">{{ element.id }}</td>
   </ng-container>
 
   <!-- codigo Column -->
@@ -102,7 +102,7 @@
         mat-icon-button
         matTooltip="Reservar"
         matTooltipShowDelay="1000"
-        (click)="createReserva(element.vueloid)"
+        (click)="createReserva(element.id)"
       >
         <mat-icon style="color: green">edit_calendar</mat-icon>
       </button>

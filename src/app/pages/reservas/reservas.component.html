@@ -1,55 +1,55 @@
 <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
-  <!-- reservaid Column -->
-  <ng-container matColumnDef="reservaid">
+  <!-- id Column -->
+  <ng-container matColumnDef="id">
     <th
       mat-header-cell
       *matHeaderCellDef
       mat-sort-header
-      sortActionDescription="Sort by reservaid"
+      sortActionDescription="Sort by id"
     >
-      ReservaID
+      Reserva ID
     </th>
-    <td mat-cell *matCellDef="let element">{{ element.reservaid }}</td>
+    <td mat-cell *matCellDef="let element">{{ element.id }}</td>
   </ng-container>
 
-  <!-- vueloid Column -->
-  <ng-container matColumnDef="vueloid">
+  <!-- vueloId Column -->
+  <ng-container matColumnDef="vueloId">
     <th
       mat-header-cell
       *matHeaderCellDef
       mat-sort-header
-      sortActionDescription="Sort by vueloid"
+      sortActionDescription="Sort by vueloId"
     >
-      VueloID
+      Vuelo ID
     </th>
-    <td mat-cell *matCellDef="let element">{{ element.vueloid }}</td>
+    <td mat-cell *matCellDef="let element">{{ element.vueloId }}</td>
   </ng-container>
 
-  <!-- pasajeroid Column -->
-  <ng-container matColumnDef="pasajeroid">
+  <!-- pasajeroId Column -->
+  <ng-container matColumnDef="pasajeroId">
     <th
       mat-header-cell
       *matHeaderCellDef
       mat-sort-header
-      sortActionDescription="Sort by pasajeroid"
+      sortActionDescription="Sort by pasajeroId"
     >
-      PasajeroID
+      Pasajero ID
     </th>
-    <td mat-cell *matCellDef="let element">{{ element.pasajeroid }}</td>
+    <td mat-cell *matCellDef="let element">{{ element.pasajeroId }}</td>
   </ng-container>
 
-  <!-- fechareserva Column -->
-  <ng-container matColumnDef="fechareserva">
+  <!-- createdAt Column -->
+  <ng-container matColumnDef="createdAt">
     <th
       mat-header-cell
       *matHeaderCellDef
       mat-sort-header
-      sortActionDescription="Sort by fechareserva"
+      sortActionDescription="Sort by createdAt"
     >
-      FechaReserva
+      Fecha Reserva
     </th>
     <td mat-cell *matCellDef="let element">
-      {{ element.fechareserva | date : "yyyy/MM/dd hh:mm a" }}
+      {{ element.createdAt | date : "yyyy/MM/dd hh:mm a" }}
     </td>
   </ng-container>
 
@@ -74,7 +74,7 @@
         mat-icon-button
         matTooltip="Cancelar Reserva"
         matTooltipShowDelay="1000"
-        (click)="deleteReserva(element.reservaid)"
+        (click)="deleteReserva(element.id)"
       >
         <mat-icon style="color: red">delete</mat-icon>
       </button>

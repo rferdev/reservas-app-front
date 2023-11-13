@@ -2,18 +2,19 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { Vuelo } from '../interfaces/vuelos.interface';
+import { environment } from 'src/environments/environment.development';
+
+import { Vuelo } from '../interfaces/vuelo.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class VuelosService {
-  // private baseUrl: string = environment.baseUrl;
-  private baseUrl: string = 'https://reservas-app-back.onrender.com';
+  private apiUrl: string = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
 
   getAllVuelos(): Observable<Vuelo[]> {
-    return this.http.get<Vuelo[]>(`${this.baseUrl}/vuelos`);
+    return this.http.get<Vuelo[]>(`${this.apiUrl}/vuelos`);
   }
 }
