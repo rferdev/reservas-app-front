@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
-import { Vuelo } from 'src/app/interfaces/vuelos.interface';
+import { Vuelo } from 'src/app/interfaces/vuelo.interface';
 
 import { VuelosService } from 'src/app/services/vuelos.service';
 import { ReservasService } from 'src/app/services/reservas.service';
@@ -17,7 +17,7 @@ export class VuelosComponent implements OnInit {
   VUELOS_DATA!: Vuelo[];
 
   displayedColumns: string[] = [
-    // 'vueloid',
+    // 'id',
     'codigo',
     'origen',
     'destino',
@@ -45,9 +45,8 @@ export class VuelosComponent implements OnInit {
 
   @ViewChild(MatSort) sort!: MatSort;
 
-  createReserva = (vueloID: number) => {
-    this.reservasService.createReserva(vueloID).subscribe((data) => {
-      console.log('Reserva realizada exitosamente.');
+  createReserva = (vueloId: number) => {
+    this.reservasService.createReserva(vueloId).subscribe((data) => {
       this._snackBar.open('Reserva realizada exitosamente.', 'Cerrar');
     });
   };

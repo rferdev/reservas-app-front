@@ -1,5 +1,5 @@
 export interface Vuelo {
-  vueloid: number;
+  id: number;
   codigo: string;
   origen: string;
   destino: string;

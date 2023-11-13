@@ -2,7 +2,7 @@ import { ChangeDetectorRef, Component, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
-import { Reserva } from 'src/app/interfaces/reservas.interface';
+import { Reserva } from 'src/app/interfaces/reserva.interface';
 import { ReservasService } from 'src/app/services/reservas.service';
 
 @Component({
@@ -14,10 +14,10 @@ export class ReservasComponent {
   RESERVAS_DATA!: Reserva[];
 
   displayedColumns: string[] = [
-    'reservaid',
-    'vueloid',
-    // 'pasajeroid',
-    'fechareserva',
+    'id',
+    'vueloId',
+    // 'pasajeroId',
+    'createdAt',
     'estado',
     'acciones',
   ];
